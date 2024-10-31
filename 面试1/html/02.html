@@ -1,0 +1,96 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script type="module">
+      import data from "./data.js";
+      console.log(data);
+      //渲染数据
+      const app = document.getElementById("app"); //获取容器元素
+      //遍历数据
+      data.HOT.forEach((item) => {
+        const div = document.createElement("div");
+        const img = document.createElement("img");
+        img.src = item.img;
+        div.textContent = ` ${item.id},${item.name},${item.remark}}`; // 设置内容
+        app.appendChild(div);
+        div.appendChild(img);
+      });
+    </script>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+
+      #app {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 200px; /* 固定宽度 */
+        text-align: center;
+      }
+
+      .card img {
+        width: 100%; /* 让图片宽度自适应 */
+        border-radius: 5px;
+      }
+
+      .card p {
+        margin: 10px 0 0; /* 适当的上下间距 */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script type="module">
+      import data from "./data.js";
+      console.log(data);
+
+      // 渲染数据
+      const app = document.getElementById("app"); // 获取容器元素
+
+      // 遍历数据
+      data.HOT.forEach((item) => {
+        const card = document.createElement("div");
+        card.className = "card"; // 添加样式类名
+
+        const img = document.createElement("img");
+        img.src = item.img; // 确保使用正确的属性名
+        img.alt = item.name; // 设置 alt 属性
+
+        const textDiv = document.createElement("p");
+        textDiv.textContent = `ID: ${item.id}, Name: ${item.name}`; // 设置内容
+
+        card.appendChild(img);
+        card.appendChild(textDiv);
+        app.appendChild(card);
+      });
+    </script>
+  </body>
+</html>
